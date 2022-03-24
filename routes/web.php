@@ -1,6 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
+
+//会員登録ページ
+Route::get('/register', [AuthController::class, 'getRegister']);
+//会員登録処理
+Route::post('/register', [AuthController::class, 'postRegister']);
+//ログインページ
+Route::get('/login', [AuthController::class, 'getLogin']);
+//ログイン処理
+Route::post('/login', [AuthController::class, 'postLogin']);
+//打刻ページ
+Route::get('/', [AttendanceController::class, 'getIndex']);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +27,3 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
