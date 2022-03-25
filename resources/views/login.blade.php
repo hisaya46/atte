@@ -40,7 +40,7 @@
       </div>
     </div>
   </main>
-  <footer>
+  <footer class="footer">
     <p>Atte,inc.</p>
   </footer>
   <script src="{{ asset('js/register.js') }}"></script>

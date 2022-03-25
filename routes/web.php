@@ -16,6 +16,9 @@ Route::post('/login', [AuthController::class, 'postLogin']);
 Route::get('/', [AttendanceController::class, 'getIndex']);
 
 
+//日付一覧ページ
+Route::get('');
+
 
 /*
 |--------------------------------------------------------------------------

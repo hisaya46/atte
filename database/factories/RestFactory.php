@@ -2,12 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Attendance;
+use App\Models\Rest;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
+class RestFactory extends Factory
 {
-    protected $model = User::class;
+    protected $model = Rest::class;
     /**
      * Define the model's default state.
      *
@@ -16,9 +18,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'mail_address' => $this->faker->unique()->safeEmail(),
-            'password' => $this->faker->password(),
+            'attendance_id' => Attendance::factory(),
+            'breakin_time' => $this->faker->time('H:i:s'),
+            'breakout_time' => $this->faker->time('H:i:s'),
             'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
         ];
     }
