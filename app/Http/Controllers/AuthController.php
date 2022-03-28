@@ -25,6 +25,7 @@ class AuthController extends Controller
         $user->password = $request->password;
 
         $user->save();
+        return view('login');
     }
 
     //ログイン
@@ -36,15 +37,14 @@ class AuthController extends Controller
     {
         $credentials = $request->only('mail_address', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (User::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect()->intended('/');
 
             return back()->withErrors([
                 'login_error' => 'メールアドレスかパスワードが間違っています。',
             ]);
         }
-
     }
 }

@@ -17,7 +17,7 @@ Route::get('/', [AttendanceController::class, 'getIndex']);
 
 
 //日付一覧ページ
-Route::get('');
+// Route::get('');
 
 
 /*
