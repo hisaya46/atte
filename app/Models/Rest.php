@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Rest extends Model
 {
     use HasFactory;
+
+    public function attendances()
+    {
+        return $this->belongsTo('App\Models\Attendance');
+    }
 }

@@ -18,19 +18,21 @@
     @if (count($errors) > 0)
     <ul>
       @foreach ($errors->all() as $error)
-      <li>
-        {{$error}}
-      </li>
+      <li>{{$error}}</li>
       @endforeach
     </ul>
+    @endif
+
+    @if (session('login_error'))
+    <p>{{session('login_error')}}</p>
     @endif
     <div class="register-field-content">
       <h2 class="register-field-ttl">ログイン</h2>
       <form action="login" method="POST">
         @csrf
         <ul class="register-field-lists">
-          <li class="register-field-list"><input class="register-item" type="email" name="mail_address" id="mail_address" placeholder="メールアドレス" required></li>
-          <li class="register-field-list"><input class="register-item" type="password" name="password" id="password" placeholder="パスワード" required></li>
+          <li class="register-field-list"><input class="register-item" type="email" name="mail_address" id="mail_address" placeholder="メールアドレス"></li>
+          <li class="register-field-list"><input class="register-item" type="password" name="password" id="password" placeholder="パスワード"></li>
           <li class="register-field-list"><input class="register-item register-btn" type="submit" value="ログイン"></li>
         </ul>
       </form>

@@ -23,12 +23,11 @@
     </nav>
   </header>
   <main class="register-field">
-    @if (session('login_error'))
-    {{session('login_error')}}
+    @if (session('login_success'))
+    <p>{{session('login_success')}}</p>
     @endif
     <div class="attendance">
       <h2 class="register-field-ttl">{{optional(Auth::user())->name}}さんお疲れ様です！</h2>
-
       <div class="attendance-field">
         <form class="attendance-form" action="">
           <div class="attendance-form-items">

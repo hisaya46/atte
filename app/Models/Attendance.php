@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Attendance extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+
+    public function rests()
+    {
+        return $this->hasMany(Rest::class);
+    }
 }

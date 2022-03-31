@@ -14,10 +14,13 @@ Route::get('/login', [AuthController::class, 'getLogin']);
 Route::post('/login', [AuthController::class, 'postLogin']);
 //打刻ページ
 Route::get('/', [AttendanceController::class, 'getIndex']);
+// Route::get('/', function () {
+//   return view('index');
+// });
 
 
 //日付一覧ページ
-// Route::get('');
+Route::get('/attendance', [AttendanceController::class, 'getAttendance']);
 
 
 /*

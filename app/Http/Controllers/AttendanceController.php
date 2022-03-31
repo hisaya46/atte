@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Attendance;
-
-namespace App\Http\Controllers;
-
+use App\Models\Rest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -27,7 +27,14 @@ class AttendanceController extends Controller
     //日付一覧ページ表示
     public function getAttendance()
     {
-        $records = Attendance::Paginate(5);
-        return view('attendance', ['records' => $records]);
+        //データの取得
+        // $items = Attendance::select('name')->get();
+        // $items = Attendance::select('start_time', 'end_time')->get();
+
+        $date = Rest::select(DB::raw('TIMEDIFF(breakin_time,breakout_time) as rest_time'))->get();
+        $date = Attendance::all();
+
+        $items = $date;
+        return view('attendance', ['items' => $items]);
     }
 }
