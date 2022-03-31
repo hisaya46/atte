@@ -11,6 +11,6 @@ class Rest extends Model
 
     public function attendances()
     {
-        return $this->belongsTo('App\Models\Attendance');
+        return $this->belongsTo('App\Models\Attendance', 'attendance_id');
     }
 }

@@ -19,9 +19,9 @@ class RestFactory extends Factory
     {
         return [
             'attendance_id' => Attendance::factory(),
-            'breakin_time' => $this->faker->time('H:i:s'),
-            'breakout_time' => $this->faker->time('H:i:s'),
-            'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
+            'breakin_time' => $this->faker->dateTimeBetween('11:00:00', '12:00:00')->format('H:i:s'),
+            'breakout_time' => $this->faker->dateTimeBetween('12:00:00', '13:00:00')->format('H:i:s'),
+            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

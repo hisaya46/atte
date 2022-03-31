@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'mail_address' => $this->faker->unique()->safeEmail(),
             'password' => $this->faker->password(),
-            'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

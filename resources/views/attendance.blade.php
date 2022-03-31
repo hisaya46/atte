@@ -36,17 +36,18 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($items as $item)
+          @foreach($attendances as $attendance)
           <tr class="table-row">
-            <td class="table-item">{{$item->user->name}}</td>
-            <td class="table-item">{{$item->start_time}}</td>
-            <td class="table-item">{{$item->end_time}}</td>
-            <td class="table-item">{{$item->rest_time}}</td>
-            <td class="table-item"></td>
+            <td class="table-item">{{$attendance->user->name}}</td>
+            <td class="table-item">{{$attendance->start_time}}</td>
+            <td class="table-item">{{$attendance->end_time}}</td>
+            <td class="table-item">{{$attendance->rest_time}}</td>
+            <td class="table-item">{{$attendance->work_time}}</td>
           </tr>
           @endforeach
         </tbody>
       </table>
+      {{ $attendances->links() }}
     </div>
   </main>
   <footer class=" footer">

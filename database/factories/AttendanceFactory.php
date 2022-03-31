@@ -19,10 +19,10 @@ class AttendanceFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'date' => $this->faker->dateTimeBetween('-3 years', 'now')->format('Y-m-d'),
-            'start_time' => $this->faker->dateTimeBetween('00:00:00', '12:00:00')->format('H:i:s'),
-            'end_time' => $this->faker->dateTimeBetween('12:00:00', '24:00:00')->format('H:i:s'),
-            'created_at' => $this->faker->dateTimeBetween('-3 years', 'now'),
+            'date' => $this->faker->dateTimeBetween('-1 years', 'now')->format('Y-m-d'),
+            'start_time' => $this->faker->dateTimeBetween('08:00:00', '12:00:00')->format('H:i:s'),
+            'end_time' => $this->faker->dateTimeBetween('12:00:00', '20:00:00')->format('H:i:s'),
+            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

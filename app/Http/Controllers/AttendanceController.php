@@ -8,6 +8,8 @@ use App\Models\Attendance;
 use App\Models\Rest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class AttendanceController extends Controller
 {
@@ -31,10 +33,16 @@ class AttendanceController extends Controller
         // $items = Attendance::select('name')->get();
         // $items = Attendance::select('start_time', 'end_time')->get();
 
-        $date = Rest::select(DB::raw('TIMEDIFF(breakin_time,breakout_time) as rest_time'))->get();
-        $date = Attendance::all();
+        $attendances = Attendance::all();
 
-        $items = $date;
-        return view('attendance', ['items' => $items]);
+        $attendances = Rest::select(DB::raw('TIMEDIFF(breakout_time,breakin_time) as rest_time'))
+            ->get();
+
+        $attendances = Attendance::select(DB::raw('TIMEDIFF(end_time,start_time) as work_time'))
+            ->get();
+
+        $attendances = Attendance::Paginate(5);
+
+        return view('attendance', compact('attendances'));
     }
 }
